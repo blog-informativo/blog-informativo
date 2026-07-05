@@ -1,43 +1,120 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Informativo</title>
-  <meta name="description" content="Blog informativo en construcción">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h1>Blog Informativo</h1>
-    <nav>
-      <ul>
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#about">Acerca de</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!DOCTYPE html>
+    <html class="light" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog informativo contruyendo futuro</title>
 
-  <main>
-    <section id="home">
-      <h2>Bienvenido</h2>
-      <p>Aquí irá el contenido principal del blog.</p>
-    </section>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
-    <section id="about">
-      <h2>Sobre este blog</h2>
-      <p>Descripción breve del proyecto.</p>
-    </section>
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="/styles/styles.css">
+    </head>
+    <body>
 
-    <section id="contact">
-      <h2>Contacto</h2>
-      <p>Información de contacto o formulario.</p>
-    </section>
-  </main>
+    <!-- ===== Navigation Drawer (Desktop) ===== -->
+    <aside class="nav-drawer">
+        <div class="nav-drawer-inner">
+        <div class="brand">
+            <span class="material-symbols-outlined">terminal</span>
+            <span class="brand-name">BLOG INFORMATIVO</span>
+        </div>
+        <nav class="nav-list">
+            <p class="nav-label">CATEGORIES</p>
+            <a class="nav-link nav-link-active" href="#">
+            <span class="material-symbols-outlined">memory</span> Hardware
+            </a>
+            <a class="nav-link" href="#">
+            <span class="material-symbols-outlined">analytics</span> Diagnostics
+            </a>
+            <a class="nav-link" href="#">
+            <span class="material-symbols-outlined">terminal</span> Software
+            </a>
+            <a class="nav-link" href="#">
+            <span class="material-symbols-outlined">settings_input_component</span> Architecture
+            </a>
+        </nav>
+        </div>
+    </aside>
 
-  <footer>
-    <p>&copy; 2026 Blog Informativo. Todos los derechos reservados.</p>
-  </footer>
-</body>
-</html>
+    <!-- ===== Header / TopAppBar ===== -->
+    <header class="top-app-bar">
+        <div class="top-app-bar-inner">
+        <div class="mobile-brand">
+            <span class="material-symbols-outlined mobile-brand-icon">terminal</span>
+            <h1 class="mobile-brand-name">BLOG INFORMATIVO</h1>
+        </div>
+
+        <div class="search-wrapper">
+            <div class="search-input-wrapper">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input class="search-input" placeholder="Search architecture documentation..." type="text">
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button id="themeToggle" class="icon-button material-symbols-outlined" aria-label="Toggle theme">contrast</button>
+        </div>
+        </div>
+    </header>
+
+    <!-- ===== Main ===== -->
+    <main class="main-content">
+
+        <!-- Título principal -->
+        <header class="page-header">
+        <h1 class="page-title">Título de ejemplo</h1>
+        <p class="page-subtitle">Un subtítulo descriptivo para esta página.</p>
+        </header>
+
+        <!-- Imagen de ejemplo -->
+        <figure class="page-figure">
+        <img class="page-image"
+            alt="Imagen de ejemplo"
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+        <figcaption class="page-caption">Descripción o pie de la imagen de ejemplo.</figcaption>
+        </figure>
+
+        <!-- Contenido -->
+        <article class="page-article">
+        <p>
+            Este es un párrafo de contenido de ejemplo. Aquí puedes escribir el texto real
+            que quieras mostrar en la página, reemplazando este marcador de posición por
+            tu propio contenido.
+        </p>
+
+        <p>
+            Este es un segundo párrafo de ejemplo. Puedes agregar tantos párrafos como
+            necesites, e incluso usar <a href="#" class="text-link">enlaces</a>,
+            <strong>negritas</strong> o <em>cursivas</em> dentro del texto.
+        </p>
+
+        <p>
+            La estructura es simple: un título, una imagen de ejemplo y el contenido en
+            formato de artículo. Ya no aparece como una plantilla de blog rellena.
+        </p>
+        </article>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="footer-inner">
+        <div class="footer-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Contact</a>
+        </div>
+        <p class="footer-copyright">
+            &copy; 2026 BLOG INFORMATIVO CONTRUYENDO FUTURO. All rights reserved.
+        </p>
+        </div>
+    </footer>
+
+    <!-- Script externo -->
+    <script src="/script/script.js"></script>
+    </body>
+    </html>
