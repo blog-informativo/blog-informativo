@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Informativo construyendo conocimiento</title>
+
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <!--style estilos-->
+    <link rel="stylesheet" href="styles/style_index.css">
+</head>
+<body>
+      
+    <!-- ===== Scrim (Fondo oscuro semitransparente móvil) ===== -->
+    <div id="navScrim" class="nav-scrim"></div>
+
+    <!-- ===== Barra lateral (Navigation Drawer) ===== -->
+    <aside id="navDrawer" class="nav-drawer">
+        <div class="nav-drawer-inner">
+            <div class="brand">
+                <span class="material-symbols-outlined">terminal</span>
+                <span>contruyendo conocimiento</span>
+            </div>
+
+            <nav class="nav-list">
+                <p class="nav-label">CATEGORÍAS</p>
+                <a href="#inicio" class="nav-link nav-link-active">
+                    <span class="material-symbols-outlined">home</span>
+                    Inicio
+                </a>
+                <a href="#articulos" class="nav-link">
+                    <span class="material-symbols-outlined">article</span>
+                    Artículos
+                </a>
+                <a href="#conceptos" class="nav-link">
+                    <span class="material-symbols-outlined">category</span>
+                    Conceptos
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- ===== Contenedor Principal (Se ajusta al lado de la barra en Desktop) ===== -->
+    <div class="page-wrapper">
+        
+        <!-- ===== Header / TopAppBar ===== -->
+        <header class="top-app-bar">
+            <div class="top-app-bar-inner">
+                <div class="mobile-brand">
+                    <button id="menuToggle" class="icon-button menu-toggle material-symbols-outlined" aria-label="Abrir menú" aria-controls="navDrawer" aria-expanded="false">menu</button>
+                    <span class="material-symbols-outlined mobile-brand-icon">terminal</span>
+                    <h1 class="mobile-brand-name">CONSTRUYENDO CONOCIMIENTO</h1>
+                </div>
+
+                <div class="search-wrapper">
+                    <div class="search-input-wrapper">
+                        <span class="material-symbols-outlined search-icon">search</span>
+                        <label class="sr-only" for="siteSearch">Buscar en el blog</label>
+                        <input id="siteSearch" class="search-input" placeholder="Buscar contenido de ejemplo..." type="search" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <span class="icon-button theme-indicator material-symbols-outlined" role="img" aria-label="Tema según la configuración del sistema" title="Tema según la configuración del sistema">contrast</span>
+                </div>
+            </div>
+        </header>
+    
+        <!-- ===== Main Content ===== -->
+        <main id="inicio" class="main-content">
+
+            <!-- 1. SECCIÓN: ARTÍCULO DESTACADO (Hero) -->
+            <section class="section-container">
+                <article class="hero-article card-hover">
+                    <div class="hero-image-wrapper technical-border">
+                    <img class="hero-image zoom-img" src="images/ejemplo.webp" alt="Imagen destacada de ejemplo">
+                    </div>
+                    <div class="hero-content">
+                        <div class="meta-info">
+                            <span class="tag-primary">DESTACADO</span>
+                            <span class="date-text">24 Mar 2026</span>
+                        </div>
+                        <h2 class="hero-title">Mantenimiento de hardware</h2>
+                        <p class="hero-description">
+                            Un párrafo introductorio de ejemplo para el artículo destacado. Aquí se explica brevemente de qué trata el contenido principal para enganchar al lector.
+                        </p>
+                        <a href="articulos/articuloMantenimiento%20de%20hardware/plantilla_articulos_blog1.html" class="read-more-link">
+                            LEER ARTÍCULO <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 2. SECCIÓN: ARTÍCULOS RECIENTES (Lista) -->
+            <section id="articulos" class="section-container border-top-divider pt-large">
+                <h3 class="section-label">ARTÍCULOS RECIENTES</h3>
+                <div class="article-list">
+                    
+                    <!-- Item Artículo 1 -->
+                    <article class="list-article card-hover">
+                        <div class="list-image-wrapper technical-border">
+                            <img class="list-image zoom-img" src="images/ejemplo.webp" alt="Imagen artículo 1">
+                        </div>
+                        <div class="list-content">
+                            <div class="meta-info">
+                                <span class="category-text">CATEGORÍA 1</span>
+                                <span class="date-text">12 Mar 2026</span>
+                            </div>
+                            <h4 class="list-title"><a href="articulos/Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html">Limpieza de ventiladores</a></h4>
+                            <p class="list-description">
+                                Breve descripción de este artículo secundario. Ocupa un par de líneas para dar contexto sobre el tema a tratar.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Item Artículo 2 -->
+                    <article class="list-article card-hover">
+                        <div class="list-image-wrapper technical-border">
+                            <img class="list-image zoom-img" src="images/ejemplo.webp" alt="Imagen artículo 2">
+                        </div>
+                        <div class="list-content">
+                            <div class="meta-info">
+                                <span class="category-text">CATEGORÍA 2</span>
+                                <span class="date-text">08 Mar 2026</span>
+                            </div>
+                            <h4 class="list-title"><a href="articulos/conceptos%20basicos/plantilla_articulos_blog3.html">Conceptos básicos</a></h4>
+                            <p class="list-description">
+                                Breve descripción de este artículo secundario. Ocupa un par de líneas para dar contexto sobre el tema a tratar.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- 3. NUEVA SECCIÓN: INTERCONEXIÓN DE ARTÍCULOS/CONCEPTOS (Grilla) -->
+            <section id="conceptos" class="section-container">
+                <div class="section-header-flex">
+                    <h3 class="section-label mb-0">CONCEPTOS RELACIONADOS</h3>
+                    <a href="#archivo" class="view-all-link">VER TODOS</a>
+                </div>
+                
+                <div class="concept-grid">
+                    <!-- Concepto 1 -->
+                    <div class="concept-card technical-border card-hover">
+                        <div>
+                            <span class="category-text block-mb">CONCEPTO CLAVE</span>
+                            <h5 class="concept-title"><a href="articulos/Impacto%20real%20de%20ampliar%20la%20memoria%20RAM/plantilla_articulos_blog4.html">Impacto real de ampliar la memoria RAM</a></h5>
+                            <p class="concept-description">
+                                Explicación breve del concepto o artículo relacionado. Esto servirá para interconectar con tu plantilla de conceptos.
+                            </p>
+                        </div>
+                        <div class="concept-footer">
+                            <span class="date-text">Lectura: 5 min</span>
+                            <span class="material-symbols-outlined link-icon">arrow_outward</span>
+                        </div>
+                    </div>
+
+                    <!-- Concepto 2 -->
+                    <div class="concept-card technical-border card-hover">
+                        <div>
+                            <span class="category-text block-mb">DEFINICIÓN</span>
+                            <h5 class="concept-title"><a href="articulos/Optimizaci%C3%B3n%20del%20sistema%20y%20cuidado%20de%20la%20bater%C3%ADa/plantilla_articulos_blog5.html">Optimización del sistema y cuidado de la batería</a></h5>
+                            <p class="concept-description">
+                                Explicación breve del concepto o artículo relacionado. Esto servirá para interconectar con tu plantilla de conceptos.
+                            </p>
+                        </div>
+                        <div class="concept-footer">
+                            <span class="date-text">Lectura: 8 min</span>
+                            <span class="material-symbols-outlined link-icon">arrow_outward</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: LISTA DE ARTÍCULOS (LLAMANDO A LA PLANTILLA 15 VECES) -->
+            <section id="archivo" class="section-container border-top-divider pt-large">
+                <div class="section-header-flex">
+                    <h3 class="section-label mb-0">ARCHIVO DE PUBLICACIONES</h3>
+                </div>
+                
+                <!-- Grilla CSS para alojar los 15 elementos -->
+                <div class="concept-grid">
+                    
+                    <!-- ELEMENTO 1 AL 15 (SIN CONTENIDO, SOLO WIREFRAME) -->
+                    <!-- 1 -->
+                    <a href="articulos/articuloMantenimiento%20de%20hardware/plantilla_articulos_blog1.html" class="concept-card technical-border card-hover">
+                        <div>
+                            <span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span>
+                            <h5 class="concept-title">Mantenimiento de hardware</h5>
+                            <p class="concept-description">Haz clic aquí para ver la maquetación pura en CSS de la plantilla del artículo individual.</p>
+                        </div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 2 -->
+                    <a href="articulos/Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Limpieza de ventiladores</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 3 -->
+                    <a href="articulos/conceptos%20basicos/plantilla_articulos_blog3.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Conceptos básicos</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 4 -->
+                    <a href="articulos/Impacto%20real%20de%20ampliar%20la%20memoria%20RAM/plantilla_articulos_blog4.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Impacto real de ampliar la memoria RAM</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 5 -->
+                    <a href="articulos/Optimizaci%C3%B3n%20del%20sistema%20y%20cuidado%20de%20la%20bater%C3%ADa/plantilla_articulos_blog5.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Optimización del sistema y cuidado de la batería</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 6 -->
+                    <a href="articulos/Limpieza%20f%C3%ADsica%20y%20prevenci%C3%B3n%20del%20thermal%20throttling/plantilla_articulos_blog6.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Limpieza física y prevención del thermal throttling</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 7 -->
+                    <a href="articulos/Actualizaciones%20cr%C3%ADticas%20y%20seguridad%20del%20sistema/plantilla_articulos_blog7.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Actualizaciones críticas y seguridad del sistema</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 8 -->
+                    <a href="articulos/Cuidado%20preventivo%20frente%20a%20accidentes%20y%20transporte/plantilla_articulos_blog8.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Cuidado preventivo frente a accidentes y transporte</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 9 -->
+                    <a href="articulos/Higiene%20digital%20y%20organizaci%C3%B3n%20de%20archivos/plantilla_articulos_blog9.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Higiene digital y organización de archivos</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 10 -->
+                    <a href="articulos/Descargas%20seguras%20en%20internet/plantilla_articulos_blog10.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Descargas seguras en internet</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 11 -->
+                    <a href="articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Redes domésticas y Wi-Fi</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 12 -->
+                    <a href="articulos/Copias%20de%20seguridad%20(Backups)%20simplificadas/plantilla_articulos_blog12.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Copias de seguridad (Backups) simplificadas</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 13 -->
+                    <a href="articulos/Tecnolog%C3%ADa%20verde%20y%20E-waste/plantilla_articulos_blog13.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Tecnología verde y E-waste</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 14 -->
+                    <a href="articulos/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Protección contra estafas en línea (Phishing)</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 15 -->
+                    <a href="articulos/Atajos%20de%20teclado%20y%20trucos%20de%20productividad/plantilla_articulos_blog15.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Atajos de teclado y trucos de productividad</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Plantilla</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+
+
+                    <!-- 16 -->
+                    <a href="articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">SEGURIDAD</span><h5 class="concept-title">Seguridad básica y Antivirus</h5><p class="concept-description">Recomendaciones para proteger el equipo y la información.</p></div>
+                        <div class="concept-footer"><span class="date-text">Artículo</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                    <!-- 17 -->
+                    <a href="articulos/Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html" class="concept-card technical-border card-hover">
+                        <div><span class="category-text block-mb">SALUD DIGITAL</span><h5 class="concept-title">Ergonomía y salud digital</h5><p class="concept-description">Hábitos para usar la tecnología de forma cómoda y segura.</p></div>
+                        <div class="concept-footer"><span class="date-text">Artículo</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ===== Footer ===== -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-links">
+                    <a href="#archivo" class="footer-link">Archivo</a>
+                    <a href="#inicio" class="footer-link">Contacto</a>
+                    <a href="#inicio" class="footer-link">Privacidad</a>
+                </div>
+                <p class="footer-copyright">
+                    &copy; 2026 blog-informativo construyendo conocimiento.
+                </p>
+            </div>
+        </footer>
+
+    </div> <!-- Fin Page Wrapper -->
+
+    <!-- Script externo -->
+    <script src="script/script_index.js"></script>
+</body>
+</html>

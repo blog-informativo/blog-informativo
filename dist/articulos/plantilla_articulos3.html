@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Artículo | Wireframe</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Puro (Asumiendo que tienes las variables base y los estilos de este artículo) -->
+    <!-- Cargamos un estilo base global si lo tienes, y luego el específico -->
+    <link rel="stylesheet" href="style/style_articulo.css">
+</head>
+<body class="bg-surface text-primary">
+
+    <!-- Header del Artículo -->
+    <header class="article-header">
+        <div class="header-inner">
+            <div class="logo-area">
+                <div class="logo-placeholder"><span class="font-bold">L</span></div>
+                <span class="site-title font-headline-md">Logo del Blog Tech</span>
+            </div>
+            
+            <nav class="desktop-nav font-label">
+                <a href="../index.html#inicio">Inicio</a>
+                <a href="../index.html#articulos">Reseñas</a>
+                <a href="../index.html#articulos">Noticias</a>
+                <a href="../index.html#conceptos">Tutoriales</a>
+            </nav>
+
+            <div class="header-actions">
+                <span class="icon-button theme-indicator" role="img" aria-label="Tema según la configuración del sistema" title="Tema según la configuración del sistema">
+                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="article-main-container">
+        <div class="article-grid-layout">
+            
+            <!-- Columna Izquierda: Cuerpo del Artículo -->
+            <article class="article-body">
+                <!-- Hero/Title -->
+                <header class="section-spacing">
+                    <div class="wireframe-box text-center py-large">
+                        <h1 class="font-headline-lg uppercase tracking-tight">TÍTULO DE LA PUBLICACIÓN (H1)</h1>
+                    </div>
+                    <div class="metadata-bar font-label text-dim">
+                        <span>📅 Fecha de Publicación</span>
+                        <span class="separator">|</span>
+                        <span>👤 Autor</span>
+                        <span class="separator">|</span>
+                        <span>📁 Categoría</span>
+                    </div>
+                </header>
+
+                <!-- Introducción -->
+                <section class="section-spacing">
+                    <h2 class="font-headline-md uppercase">INTRODUCCIÓN/PÁRRAFO DE GANCHO</h2>
+                    <div class="skeleton-text-group">
+                        <div class="skeleton-line w-full"></div>
+                        <div class="skeleton-line w-full"></div>
+                        <div class="skeleton-line w-75"></div>
+                    </div>
+                </section>
+
+                <!-- Subtítulo con imagen -->
+                <section class="split-layout section-spacing">
+                    <div>
+                        <h2 class="font-headline-md uppercase mb-sm">SUBTÍTULO (H2) - Características</h2>
+                        <div class="skeleton-text-group">
+                            <div class="skeleton-line w-full"></div>
+                            <div class="skeleton-line w-full"></div>
+                            <div class="skeleton-line w-80"></div>
+                        </div>
+                    </div>
+                    <div class="wireframe-box aspect-square flex-center">
+                        <span class="font-label text-dim uppercase text-center text-xs">Imagen destacada o infografía</span>
+                    </div>
+                </section>
+
+                <!-- Listas -->
+                <section class="section-spacing">
+                    <h2 class="font-headline-md uppercase mb-sm">SUBTÍTULO (H2) - Rendimiento</h2>
+                    <div class="skeleton-text-group mb-sm">
+                        <div class="skeleton-line w-full"></div>
+                        <div class="skeleton-line w-full"></div>
+                    </div>
+                    <ul class="styled-list text-dim">
+                        <li>LISTA DE PUNTOS CLAVE (Bullets)</li>
+                        <li>Característica de rendimiento A</li>
+                        <li>Característica de rendimiento B</li>
+                    </ul>
+                </section>
+
+                <!-- Tabla (Placeholder) -->
+                <section class="wireframe-box section-spacing text-center py-medium">
+                    <h3 class="font-label uppercase tracking-widest">TABLA COMPARATIVA</h3>
+                    <p class="font-label text-dim text-xs mb-sm">(Marcador de posición)</p>
+                    <div class="skeleton-grid-3">
+                        <div class="skeleton-block"></div><div class="skeleton-block"></div><div class="skeleton-block"></div>
+                        <div class="skeleton-block"></div><div class="skeleton-block"></div><div class="skeleton-block"></div>
+                    </div>
+                </section>
+
+                <!-- Conclusión -->
+                <section class="section-spacing">
+                    <h2 class="font-headline-md uppercase mb-sm">CONCLUSIÓN Y RESUMEN (H2)</h2>
+                    <div class="skeleton-text-group">
+                        <div class="skeleton-line w-full"></div>
+                        <div class="skeleton-line w-66"></div>
+                    </div>
+                </section>
+
+                <!-- CTAs -->
+                <div class="cta-group section-spacing pt-medium">
+                    <div class="wireframe-box text-center py-medium font-label font-bold tracking-widest text-xs">
+                        LLAMADO A LA ACCIÓN (Ej. Comentarios)
+                    </div>
+                    <div class="wireframe-box bg-lowest text-center py-large font-label font-bold tracking-widest text-xs">
+                        SECCIÓN DE COMENTARIOS
+                    </div>
+                </div>
+            </article>
+
+            <!-- Columna Derecha: Sidebar -->
+            <aside class="article-sidebar">
+                <!-- Ad Placeholder -->
+                <div class="wireframe-box aspect-video flex-center">
+                    <svg class="text-dim" height="40" viewBox="0 0 40 40" width="40"><path d="M0 0 L40 40 M40 0 L0 40" stroke="currentColor" stroke-width="1"></path></svg>
+                </div>
+
+                <!-- Búsqueda -->
+                <div class="sidebar-widget bg-lowest">
+                    <div class="search-box-placeholder font-label uppercase text-dim font-bold text-xs">
+                        Barra de Búsqueda
+                    </div>
+                </div>
+
+                <!-- Entradas recientes -->
+                <div class="sidebar-widget bg-lowest">
+                    <h3 class="font-label uppercase tracking-widest mb-sm">Entradas Recientes</h3>
+                    <div class="skeleton-text-group">
+                        <div class="skeleton-line h-thick w-full bg-low"></div>
+                        <div class="skeleton-line h-thick w-80 bg-low"></div>
+                        <div class="skeleton-line h-thick w-66 bg-low"></div>
+                    </div>
+                </div>
+
+                <!-- Categorías -->
+                <div class="sidebar-widget bg-lowest">
+                    <h3 class="font-label uppercase tracking-widest mb-sm">Categorías Populares</h3>
+                    <div class="tags-group">
+                        <div class="skeleton-tag w-16"></div>
+                        <div class="skeleton-tag w-20"></div>
+                        <div class="skeleton-tag w-14"></div>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-widget bg-lowest text-center">
+                    <h3 class="font-label uppercase tracking-widest mb-sm">Suscripción al Boletín</h3>
+                    <div class="skeleton-button"></div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="article-footer bg-low">
+        <div class="footer-inner text-center">
+            <p class="font-label uppercase tracking-widest text-dim text-xs">
+                &copy; 2026 Blog Informativo construyendo conocimiento. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
