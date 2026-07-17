@@ -2,11 +2,39 @@ const ASSETS_BASE = 'assets/images/';
 const CONFIG_BASE = 'config/';
 const PLACEHOLDER = 'placeholder.jpg';
 
+const FALLBACK_ARTICLES = [
+  { slug: 'mantenimiento-hardware', title: 'Mantenimiento de hardware', path: 'articuloMantenimiento de hardware/plantilla_articulos_blog1.html' },
+  { slug: 'conceptos-basicos', title: 'Conceptos básicos', path: 'conceptos basicos/plantilla_articulos_blog3.html' },
+  { slug: 'ergonomia-salud-digital', title: 'Ergonomía y salud digital', path: 'Ergonomía y salud digital/plantilla_articulos2.html' },
+  { slug: 'guia-limpieza-de-ventiladores', title: 'Limpieza de ventiladores', path: 'Guía Limpieza de ventiladores/plantilla_articulos_blog2.html' },
+  { slug: 'copias-de-seguridad-backups-simplificadas', title: 'Copias de seguridad (Backups) simplificadas', path: 'Copias de seguridad (Backups) simplificadas/plantilla_articulos_blog12.html' },
+  { slug: 'descargas-seguras-en-internet', title: 'Descargas seguras en internet', path: 'Descargas seguras en internet/plantilla_articulos_blog10.html' },
+  { slug: 'limpieza-fisica-prevencion-thermal-throttling', title: 'Limpieza física y prevención del thermal throttling', path: 'Limpieza física y prevención del thermal throttling/plantilla_articulos_blog6.html' },
+  { slug: 'optimizacion-sistema-cuidado-bateria', title: 'Optimización del sistema y cuidado de la batería', path: 'Optimización del sistema y cuidado de la batería/plantilla_articulos_blog5.html' },
+  { slug: 'proteccion-estafas-linea-phishing', title: 'Protección contra estafas en línea (Phishing)', path: 'Protección contra estafas en línea (Phishing)/plantilla_articulos_blog14.html' },
+  { slug: 'redes-domesticas-wifi', title: 'Redes domésticas y Wi-Fi', path: 'Redes domésticas y Wi-Fi/plantilla_articulos_blog11.html' },
+  { slug: 'seguridad-basica-antivirus', title: 'Seguridad básica y Antivirus', path: 'Seguridad básica y Antivirus/plantilla_articulos1.html' },
+  { slug: 'tecnologia-verde-e-waste', title: 'Tecnología verde y E-waste', path: 'Tecnología verde y E-waste/plantilla_articulos_blog13.html' },
+  { slug: 'actualizaciones-criticas-seguridad-sistema', title: 'Actualizaciones críticas y seguridad del sistema', path: 'Actualizaciones críticas y seguridad del sistema/plantilla_articulos_blog7.html' },
+  { slug: 'cuidado-preventivo-accidentes-transporte', title: 'Cuidado preventivo frente a accidentes y transporte', path: 'Cuidado preventivo frente a accidentes y transporte/plantilla_articulos_blog8.html' },
+  { slug: 'atajos-teclado-trucos-productividad', title: 'Atajos de teclado y trucos de productividad', path: 'Atajos de teclado y trucos de productividad/plantilla_articulos_blog15.html' }
+];
+
+let loadedConfig = {};
+
 async function loadArticle(slug) {
-  const res = await fetch(`${CONFIG_BASE}${slug}.json`);
-  if (!res.ok) throw new Error(`No se encontró config: ${slug}`);
-  const config = await res.json();
-  renderArticle(config);
+  try {
+    const res = await fetch(`${CONFIG_BASE}${slug}.json`);
+    if (!res.ok) {
+      return redirectToStaticArticle(slug);
+    }
+
+    const config = await res.json();
+    loadedConfig = config;
+    renderArticle(config);
+  } catch (err) {
+    return redirectToStaticArticle(slug);
+  }
 }
 
 function renderArticle(config) {
@@ -30,7 +58,7 @@ function renderNav() {
 
 function renderBody(config) {
   const body = document.getElementById('article-body');
-  const heroImg = config.images.find(i => i.type === 'hero') || config.images[0];
+  const heroImg = config.images?.find(i => i.type === 'hero') || config.images?.[0];
   const heroSrc = heroImg ? `${ASSETS_BASE}${config.slug}/${heroImg.src}` : '';
   
   body.innerHTML = `
@@ -51,17 +79,17 @@ function renderBody(config) {
         <figcaption>${escapeHtml(heroImg.caption || '')}</figcaption>
       </figure>
     ` : ''}
-    ${config.sections.map(renderSection).join('')}
+    ${config.sections.map(section => renderSection(config, section)).join('')}
   `;
 }
 
-function renderSection(section) {
+function renderSection(config, section) {
   const headingTag = section.level === 2 ? 'h2' : 'h3';
   const headingClass = section.level === 2 ? 'article-subheading' : '';
   let html = '';
-  
+
   if (section.imageId) {
-    const img = config.images.find(i => i.id === section.imageId);
+    const img = config.images?.find(i => i.id === section.imageId);
     if (img) {
       html += `
         <figure class="article-figure">
@@ -71,7 +99,7 @@ function renderSection(section) {
       `;
     }
   }
-  
+
   if (section.title) {
     html += `<${headingTag} class="${headingClass}">${escapeHtml(section.title)}</${headingTag}>`;
   }
@@ -114,18 +142,25 @@ function renderSidebar(config) {
 }
 
 async function loadRecentArticles() {
+  const list = document.getElementById('recent-list');
+  if (!list) return;
+
   try {
     const res = await fetch(`${CONFIG_BASE}index.json`);
     const data = await res.json();
-    const list = document.getElementById('recent-list');
-    if (list && data.recent) {
+    if (data.recent) {
       list.innerHTML = data.recent.slice(0, 3).map(r => 
         `<li><a href="plantilla-articulo.html?slug=${r.slug}">${escapeHtml(r.title)}</a></li>`
       ).join('');
+      return;
     }
   } catch (e) {
     console.warn('No se pudo cargar index.json para artículos recientes');
   }
+
+  list.innerHTML = FALLBACK_ARTICLES.slice(0, 3).map(r =>
+    `<li><a href="${r.path}">${escapeHtml(r.title)}</a></li>`
+  ).join('');
 }
 
 function initThemeToggle() {
@@ -133,9 +168,12 @@ function initThemeToggle() {
   const toggle = document.getElementById('themeToggle');
   const stored = localStorage.getItem('theme');
   
-  if (stored === 'dark') root.classList.add('dark');
-  else if (stored === 'light') root.classList.remove('dark');
-  
+  if (stored === 'dark') {
+    root.classList.add('dark');
+  } else if (stored === 'light') {
+    root.classList.remove('dark');
+  }
+
   if (toggle) {
     toggle.addEventListener('click', () => {
       const dark = root.classList.toggle('dark');
@@ -152,16 +190,45 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+function normalizeSlug(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function findStaticArticlePath(slug) {
+  const normalized = normalizeSlug(slug);
+  const fallback = FALLBACK_ARTICLES.find(entry => normalizeSlug(entry.slug) === normalized);
+  return fallback ? fallback.path : null;
+}
+
+function redirectToStaticArticle(slug) {
+  const fallbackPath = findStaticArticlePath(slug);
+  if (fallbackPath) {
+    window.location.href = fallbackPath;
+    return true;
+  }
+
+  const body = document.getElementById('article-body');
+  if (body) {
+    body.innerHTML = `
+      <div class="wireframe-box text-center py-large" style="border: 2px dashed var(--surface-dim); background: var(--surface-low); border-radius: 4px;">
+        <h1 class="font-headline-lg uppercase tracking-tight">Error cargando artículo</h1>
+        <p class="text-dim">No se encontró la configuración para: ${escapeHtml(slug)}.</p>
+        <p class="text-dim">Si este artículo existe, revisa la carpeta <strong>articulos/config/</strong> y crea el archivo JSON correspondiente.</p>
+      </div>
+    `;
+  }
+
+  return false;
+}
+
 const params = new URLSearchParams(window.location.search);
 const slug = params.get('slug') || 'plantilla';
 loadArticle(slug).catch(err => {
   console.error(err);
-  document.getElementById('article-body').innerHTML = `
-    <div class="wireframe-box text-center py-large" style="border: 2px dashed var(--surface-dim); background: var(--surface-low); border-radius: 4px;">
-      <h1 class="font-headline-lg uppercase tracking-tight">Error cargando artículo</h1>
-      <p class="text-dim">No se encontró: ${escapeHtml(slug)}.json</p>
-    </div>
-  `;
+  redirectToStaticArticle(slug);
 });
-
-let config = {};

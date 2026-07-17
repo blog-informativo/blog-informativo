@@ -1,0 +1,14 @@
+{
+  "recent": [
+    { "slug": "mantenimiento-hardware", "title": "Mantenimiento de hardware" },
+    { "slug": "conceptos-basicos", "title": "Conceptos básicos" },
+    { "slug": "ergonomia-salud-digital", "title": "Ergonomía y salud digital" },
+    { "slug": "guia-limpieza-de-ventiladores", "title": "Limpieza de ventiladores" },
+    { "slug": "copias-de-seguridad-backups-simplificadas", "title": "Copias de seguridad (Backups) simplificadas" },
+    { "slug": "descargas-seguras-en-internet", "title": "Descargas seguras en internet" },
+    { "slug": "limpieza-fisica-prevencion-thermal-throttling", "title": "Limpieza física y prevención del thermal throttling" },
+    { "slug": "optimizacion-sistema-cuidado-bateria", "title": "Optimización del sistema y cuidado de la batería" },
+    { "slug": "proteccion-estafas-linea-phishing", "title": "Protección contra estafas en línea (Phishing)" },
+    { "slug": "redes-domesticas-wifi", "title": "Redes domésticas y Wi-Fi" }
+  ]
+}
