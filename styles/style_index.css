@@ -127,8 +127,12 @@ button { background: none; border: none; cursor: pointer; padding: 0; color: inh
 .nav-scrim {
     position: fixed; inset: 0; background-color: var(--scrim-bg);
     z-index: 55; opacity: 0; visibility: hidden; transition: opacity 0.25s;
+    pointer-events: none; /* Permite que los clics pasen a través de la capa oculta */
 }
-.nav-scrim.is-visible { opacity: 1; visibility: visible; }
+.nav-scrim.is-visible { 
+    opacity: 1; visibility: visible; 
+    pointer-events: auto; /* Vuelve a capturar los clics cuando está abierto */
+}
 
 /* Header */
 .top-app-bar { position: sticky; top: 0; z-index: 40; background-color: var(--bg-header); border-bottom: 1px solid var(--border-technical); }
