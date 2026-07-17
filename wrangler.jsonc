@@ -1,0 +1,8 @@
+{
+  "name": "blog-informativo",
+  "compatibility_date": "2026-07-17",
+  "assets": {
+    "directory": ".",
+    "exclude": [".git/**", ".agents/**", ".gitignore", "wrangler.jsonc"]
+  }
+}
