@@ -1,6 +1,5 @@
 /* =====================================================================
     SYSTEM_DOCS — Script principal
-    - Toggle de tema claro/oscuro
     - Micro-interacción del input de búsqueda
     - Toggle de la barra lateral (drawer) en móvil/tablet
     ===================================================================== */
@@ -9,46 +8,7 @@
     'use strict';
 
     /* ----------------------------------------------------------------
-        1. Theme toggle (claro / oscuro)
-        ---------------------------------------------------------------- */
-/* ----------------------------------------------------------------
-        1. Theme toggle (claro / oscuro) con LocalStorage
-        ---------------------------------------------------------------- */
-    const themeToggle = document.getElementById('themeToggle');
-    const root = document.documentElement;
-
-    if (themeToggle) {
-        // 1. Recuperar preferencia del usuario almacenada en LocalStorage
-        const currentTheme = localStorage.getItem('theme');
-        
-        // 2. Aplicar el tema si hay uno guardado
-        if (currentTheme === 'dark') {
-            root.classList.add('dark');
-        } else if (currentTheme === 'light') {
-            root.classList.remove('dark');
-        }
-
-        // 3. Configurar el ícono inicial dependiendo del estado
-        if (root.classList.contains('dark')) {
-            themeToggle.textContent = 'light_mode';
-        } else {
-            themeToggle.textContent = 'contrast';
-        }
-
-        // 4. Manejar el evento de click
-        themeToggle.addEventListener('click', function () {
-            root.classList.toggle('dark');
-            const isDark = root.classList.contains('dark');
-            
-            // Alternar ícono
-            themeToggle.textContent = isDark ? 'light_mode' : 'contrast';
-            
-            // Guardar preferencia para la próxima vez que entre a la web
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-    }
-    /* ----------------------------------------------------------------
-        2. Micro-interacción del buscador (escala al hacer foco)
+        1. Micro-interacción del buscador (escala al hacer foco)
         ---------------------------------------------------------------- */
     const searchInput = document.querySelector('.search-input');
     const searchWrapper = document.querySelector('.search-wrapper');
@@ -63,7 +23,7 @@
     }
 
     /* ----------------------------------------------------------------
-        3. Navigation Drawer (barra lateral) en móvil/tablet
+        2. Navigation Drawer (barra lateral) en móvil/tablet
         ----------------------------------------------------------------
         - Botón #menuToggle abre/cierra el drawer
         - #navDrawer es el aside
@@ -152,5 +112,4 @@
         });
     }
 })();
-
 
