@@ -25,10 +25,14 @@
 - **Limitación en Local**: Si el proyecto se abre directamente como archivo local (`file://`), es posible que navegadores como Chrome no compartan el `localStorage` entre distintos archivos HTML, por lo que cambiar el tema en `index.html` podría no verse reflejado inmediatamente al entrar a un artículo (a menos que se use un servidor local como Live Server).
 
 ## Gestión de Imágenes en Artículos
-- **Depuración y Habilitación**: Se revisó artículo por artículo. En "articuloMantenimiento de hardware" se habilitaron las imágenes correctas y se eliminaron duplicados. En "conceptos basicos" se eliminó la carpeta duplicada y no se habilitaron imágenes. 
+- **Depuración y Habilitación**: Se revisó artículo por artículo. Se ejecutó un proceso por lotes para todos los artículos que eliminó las carpetas duplicadas de imágenes (que tenían nombres largos o en mayúsculas), movió las imágenes a las carpetas "src/" correspondientes o las enlazó con las ya existentes, y descomentó y actualizó todas las etiquetas `<figure>` e `<img>` en los HTML para que funcionen correctamente apuntando a "src/". 
 - **Extracción desde Documentos**: En "Cuidado preventivo frente a accidentes y transporte", se extrajo una infografía desde su archivo `.docx` original y se integró correctamente al HTML del artículo.
 - **Filtrado**: En "Guía Limpieza de ventiladores", se revisaron y borraron imágenes escaneadas que no servían (texto y logos).
 
 ## Corrección de Formato de Artículos
 - **Actualizaciones críticas y seguridad del sistema**: Se corrigió un problema severo de organización y estructura en `plantilla_articulos_blog7.html`. El texto original estaba dividido en decenas de etiquetas `<p>` inconexas dentro de etiquetas `<section>`. Se reestructuró la semántica HTML unificando los párrafos en secciones lógicas e insertando `<table>` para mostrar comparativas de tipos de actualizaciones, configuraciones y cuellos de botella de manera tabulada y profesional.
 - **Gestión de Despliegue (.assetsignore)**: Se agregaron `context.md`, `hystory.md`, `.vscode/`, `.wrangler/` y `.wrangler/tmp` al archivo `.assetsignore` para ignorar archivos y carpetas de desarrollo y documentación en el despliegue de assets.
+
+- **Limpieza de Etiquetas:** Se eliminaron todas las etiquetas <figcaption> de las imágenes en las plantillas HTML de los artículos, para evitar que el texto descriptivo extra se muestre de forma no deseada en el frontend.
+
+- **Limpieza de Atributos:** Se eliminó el atributo lt de todas las imágenes en las plantillas HTML a petición explícita del usuario.
