@@ -12,3 +12,4 @@
 - **Reemplazo de Imágenes:** Se eliminó la imagen de relleno `ejemplo.webp` y se enlazaron las portadas originales correspondientes para los artículos destacados en la página de inicio.
 - **Corrección de Blog 1:** Se reestructuró el HTML de `plantilla_articulos_blog1.html` (Mantenimiento de hardware) que tenía sus imágenes comentadas y rutas obsoletas. Se aplicaron los tags semánticos correspondientes y se enlazaron las imágenes de la carpeta `src/`.
 - **Corrección de Blog 3:** Se reestructuró el HTML de `plantilla_articulos_blog3.html` (Conceptos básicos) para activar sus imágenes desde la carpeta `src/` y se corrigió el marcado semántico del texto.
+- **Corrección de Modo Oscuro/Claro:** Se actualizaron los scripts (`script_index.js` y `script_articulo.js`) para que el botón de tema actualice dinámicamente su icono (Sol o Luna) dependiendo del modo activo.
