@@ -2,13 +2,51 @@
     SYSTEM_DOCS — Script principal
     - Micro-interacción del input de búsqueda
     - Toggle de la barra lateral (drawer) en móvil/tablet
+    - Toggle de Modo Oscuro
     ===================================================================== */
 
 (function () {
     'use strict';
 
     /* ----------------------------------------------------------------
-        1. Micro-interacción del buscador (escala al hacer foco)
+        1. MODO OSCURO
+        ---------------------------------------------------------------- */
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        root.classList.add('dark');
+        root.classList.remove('light');
+    } else if (savedTheme === 'light') {
+        root.classList.add('light');
+        root.classList.remove('dark');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            if (root.classList.contains('dark')) {
+                root.classList.remove('dark');
+                root.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else if (root.classList.contains('light')) {
+                root.classList.remove('light');
+                root.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    root.classList.add('light');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    root.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+        });
+    }
+
+    /* ----------------------------------------------------------------
+        2. Micro-interacción del buscador (escala al hacer foco)
         ---------------------------------------------------------------- */
     const searchInput = document.querySelector('.search-input');
     const searchWrapper = document.querySelector('.search-wrapper');
@@ -23,25 +61,14 @@
     }
 
     /* ----------------------------------------------------------------
-        2. Navigation Drawer (barra lateral) en móvil/tablet
-        ----------------------------------------------------------------
-        - Botón #menuToggle abre/cierra el drawer
-        - #navDrawer es el aside
-        - #navScrim es el overlay semitransparente
-        - Se cierra al: click en scrim, click en un nav-link, o tecla Escape
-        - En escritorio (>=1024px) el drawer siempre está visible y el
-        botón de menú no existe, por lo que este código no hace nada.
+        3. Navigation Drawer (barra lateral) en móvil/tablet
         ---------------------------------------------------------------- */
     const menuToggle = document.getElementById('menuToggle');
     const navDrawer  = document.getElementById('navDrawer');
     const navScrim   = document.getElementById('navScrim');
 
-    // Si no hay botón de menú (escritorio), no hacemos nada.
     if (menuToggle && navDrawer && navScrim) {
 
-        // ¿Está el drawer en modo móvil (deslizable)? Lo comprobamos leyendo
-        // el valor computado de transform del botón: en escritorio el botón
-        // tiene display:none, así que su offsetWidth es 0.
         const isDesktop = function () {
             return menuToggle.offsetWidth === 0;
         };
@@ -50,9 +77,8 @@
             navDrawer.classList.add('is-open');
             navScrim.classList.add('is-visible');
             menuToggle.setAttribute('aria-expanded', 'true');
-            menuToggle.textContent = 'close';
+            menuToggle.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>';
             menuToggle.setAttribute('aria-label', 'Cerrar menú de navegación');
-            // Bloquear scroll del body mientras el drawer está abierto
             document.body.style.overflow = 'hidden';
         };
 
@@ -60,14 +86,12 @@
             navDrawer.classList.remove('is-open');
             navScrim.classList.remove('is-visible');
             menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.textContent = 'menu';
+            menuToggle.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
             menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
-            // Restaurar scroll del body
             document.body.style.overflow = '';
         };
 
         const toggleDrawer = function () {
-            // En escritorio el botón está oculto, por seguridad no hacemos nada.
             if (isDesktop()) return;
             if (navDrawer.classList.contains('is-open')) {
                 closeDrawer();
@@ -76,14 +100,9 @@
             }
         };
 
-        // Click en el botón de menú
         menuToggle.addEventListener('click', toggleDrawer);
-
-        // Click en el scrim cierra el drawer
         navScrim.addEventListener('click', closeDrawer);
 
-        // Click en cualquier enlace del drawer lo cierra (comportamiento
-        // típico de navegación móvil).
         const navLinks = navDrawer.querySelectorAll('.nav-link');
         navLinks.forEach(function (link) {
             link.addEventListener('click', function () {
@@ -91,7 +110,6 @@
             });
         });
 
-        // Tecla Escape cierra el drawer
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && navDrawer.classList.contains('is-open')) {
                 closeDrawer();
@@ -99,8 +117,6 @@
             }
         });
 
-        // Si el usuario redimensiona la ventana a escritorio mientras el
-        // drawer está abierto, lo cerramos para dejar el estado limpio.
         let resizeTimer = null;
         window.addEventListener('resize', function () {
             if (resizeTimer) clearTimeout(resizeTimer);
@@ -112,4 +128,3 @@
         });
     }
 })();
-

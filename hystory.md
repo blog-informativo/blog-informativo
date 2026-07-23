@@ -1,0 +1,27 @@
+# Historial de Cambios
+
+## 2026-07-22 (Reversión de Cambios)
+- **Acción:** `git reset --hard 3f4bddf`
+- **Motivo:** A petición del usuario, se descartaron permanentemente los cambios de los commits más recientes para regresar al estado exacto del commit `3f4bddf`.
+
+## 2026-07-22 (Recuperación y Refactorización Post-Reset)
+- **Limpieza de Directorios:** Se eliminó la carpeta duplicada `dist` (la carpeta de imágenes se movió a la raíz). El `index.html` ya estaba conectado a la carpeta original `articulos`.
+- **Modo Oscuro & UI:** Se consolidaron `style_index.css` y `style_articulo.css` en un único `style_global.css`. Se reemplazó el uso de Material Symbols (fuente) por SVGs nativos para el toggle de modo oscuro y menú. Se mejoró la lógica del JS para guardar la preferencia en localStorage.
+- **Formateo de Artículos:** Se reestructuraron las secciones de los blogs 7 y 8, utilizando HTML semántico (párrafos y tablas).
+- **Gestión de Imágenes:** Se eliminaron las referencias comentadas a imágenes escaneadas en el blog 2, y se preparó el espacio (comentado) en el blog 8 para la infografía (la imagen se perdió tras el `git reset --hard`).
+- **Reemplazo de Im�genes:** Se elimin� la imagen de relleno `ejemplo.webp` y se enlazaron las portadas originales correspondientes para los art�culos destacados en la p�gina de inicio.
+- **Correcci�n de Blog 1:** Se reestructur� el HTML de `plantilla_articulos_blog1.html` (Mantenimiento de hardware) que ten�a sus im�genes comentadas y rutas obsoletas. Se aplicaron los tags sem�nticos correspondientes y se enlazaron las im�genes de la carpeta `src/`.
+- **Correcci�n de Blog 3:** Se reestructur� el HTML de `plantilla_articulos_blog3.html` (Conceptos b�sicos) para activar sus im�genes desde la carpeta `src/` y se corrigi� el marcado sem�ntico del texto.
+- **Correcci�n de Modo Oscuro/Claro:** Se actualizaron los scripts (`script_index.js` y `script_articulo.js`) para que el bot�n de tema actualice din�micamente su icono (Sol o Luna) dependiendo del modo activo.
+
+- **Corrección de Imágenes Blog 3:** Se eliminó la carpeta duplicada 'Conceptos básicos' que contenía imágenes redundantes y se referenciaron las imágenes correctas desde la carpeta 'src/' en el artículo 'Conceptos básicos'.
+
+- **Limpieza Masiva de Imágenes en Artículos:** Se ejecutó un script en todos los directorios de 'articulos' para eliminar las carpetas duplicadas de imágenes, consolidar todas las imágenes en las respectivas carpetas 'src/' y descomentar/actualizar las referencias HTML en todas las plantillas.
+
+- **Corrección Final de Imágenes:** Se forzó la eliminación de carpetas residuales con caracteres especiales y se inyectaron manualmente las etiquetas de imagen faltantes en el artículo 'Actualizaciones críticas y seguridad del sistema'.
+
+- **Habilitación Global de Imágenes:** Se habilitaron las imágenes en el \index.html\ (sección de Artículos Recientes) y se verificó que todos los artículos tengan el número correcto de imágenes. Se eliminaron 2 referencias a imágenes inexistentes (en 'conceptos basicos' y 'Cuidado preventivo') para evitar enlaces rotos. Todo funciona correctamente ahora.
+
+- **Limpieza de Imágenes (2026-07-23):** Se eliminaron todas las etiquetas <figcaption> de los archivos HTML de los artículos para evitar que se renderice el texto de las imágenes en la vista del blog.
+
+- **Limpieza de Atributos (2026-07-23):** Se eliminó el atributo lt de todos los archivos HTML de los artículos a solicitud del usuario.

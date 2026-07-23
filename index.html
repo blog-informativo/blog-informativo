@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <!--style estilos-->
-    <link rel="stylesheet" href="styles/style_index.css">
+    <link rel="stylesheet" href="styles/style_global.css">
 </head>
 <body>
       
@@ -50,8 +50,10 @@
         <header class="top-app-bar">
             <div class="top-app-bar-inner">
                 <div class="mobile-brand">
-                    <button id="menuToggle" class="icon-button menu-toggle material-symbols-outlined" aria-label="Abrir menú" aria-controls="navDrawer" aria-expanded="false">menu</button>
-                    <span class="material-symbols-outlined mobile-brand-icon">terminal</span>
+                    <button id="menuToggle" class="icon-button menu-toggle" aria-label="Abrir menú" aria-controls="navDrawer" aria-expanded="false">
+                        <svg class="menu-icon" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                    </button>
+                    <svg class="theme-icon mobile-brand-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zM6 10h2v2H6zm0 4h8v2H6z"/></svg>
                     <h1 class="mobile-brand-name">CONSTRUYENDO CONOCIMIENTO</h1>
                 </div>
 
@@ -64,7 +66,9 @@
                 </div>
 
                 <div class="header-actions">
-                    <span class="icon-button theme-indicator material-symbols-outlined" role="img" aria-label="Tema según la configuración del sistema" title="Tema según la configuración del sistema">contrast</span>
+                    <span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema">
+                        <svg class="theme-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg>
+                    </span>
                 </div>
             </div>
         </header>
@@ -76,7 +80,7 @@
             <section class="section-container">
                 <article class="hero-article card-hover">
                     <div class="hero-image-wrapper technical-border">
-                    <img class="hero-image zoom-img" src="images/ejemplo.webp" alt="Imagen destacada de ejemplo">
+                    <img class="hero-image zoom-img" src="articulos/articuloMantenimiento de hardware/src/01-hero-disk-fragmentation.jpg" alt="Imagen destacada Mantenimiento de Hardware">
                     </div>
                     <div class="hero-content">
                         <div class="meta-info">
@@ -102,7 +106,7 @@
                     <!-- Item Artículo 1 -->
                     <article class="list-article card-hover">
                         <div class="list-image-wrapper technical-border">
-                            <img class="list-image zoom-img" src="images/ejemplo.webp" alt="Imagen artículo 1">
+                            <img class="list-image zoom-img" src="articulos/Guía Limpieza de ventiladores/src/03-internal-cleaning.jpg" alt="Imagen artículo Limpieza de ventiladores">
                         </div>
                         <div class="list-content">
                             <div class="meta-info">
@@ -119,7 +123,7 @@
                     <!-- Item Artículo 2 -->
                     <article class="list-article card-hover">
                         <div class="list-image-wrapper technical-border">
-                            <img class="list-image zoom-img" src="images/ejemplo.webp" alt="Imagen artículo 2">
+                            <img class="list-image zoom-img" src="articulos/conceptos basicos/src/01-hero-computer.jpg" alt="Imagen artículo Conceptos Básicos">
                         </div>
                         <div class="list-content">
                             <div class="meta-info">
