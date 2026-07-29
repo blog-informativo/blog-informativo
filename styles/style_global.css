@@ -300,7 +300,7 @@ h1, h2, h3 { margin: 0; }
 
 /* Responsive Desktop */
 @media (min-width: 768px) {
-    .top-app-bar-inner, .main-content, .footer-inner { padding-left: 0; padding-right: 0; }
+    .top-app-bar-inner, .main-content, .footer-inner { padding-left: var(--gutter); padding-right: var(--gutter); }
     .list-article { flex-direction: row; }
     .list-image-wrapper { width: 220px; height: 140px; }
     .concept-grid { grid-template-columns: 1fr 1fr; }
