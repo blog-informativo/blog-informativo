@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blog-informativo.construyendoconocimiento.workers.dev/sitemap.xml
